@@ -1,3 +1,7 @@
+import { Card, CardContent, CardHeader, CardMedia, Typography, CardActions, IconButton, Button, Stack } from '@mui/material';
+import Badge from '@mui/material/Badge';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
 import { useGlobalContext } from '../context'
 
 const Events = () => {
@@ -8,17 +12,48 @@ const Events = () => {
     {events.map((event) => {
       const { id: id, title: title, date: date, location: location, link: link, image:image } = event
 
-      return <article key={id} className="single-event">
-        <footer>
-          <img src={image} className="img"/>
-          <h5>{title}</h5>
-          <p>{location}</p>
-          <p>{date}</p>
-          <a href={link} target="_blank">Original Source</a>
-          <button className="like-btn">Like</button>
-        </footer>
-      </article>
+      return <Stack spacing={2}>
+      <Card sx={{ maxWidth: 350}} key={id}>
+        <CardHeader 
+          title={title}
+          subheader = {date}        
+          />
+        <CardMedia 
+          component="img" 
+          height="200"
+          image={image}
+          alt={title}
+        />
+        <CardContent>
+          <Typography>
+          {location}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Stack 
+          direction="row" 
+          spacing={4}
+          justifyContent="space-around"
+          alignItems="center"
+          >
+          <IconButton aria-label="add to favorites">
+        <Badge badgeContent={4} color="primary">
+        <FavoriteIcon color="action" />
+      </Badge>
+        </IconButton>        
+        <Button size="small">Learn More</Button>
+        <IconButton aria-label="share with friends">
+        <Badge badgeContent={2} color="primary">
+        <ShareIcon color="action" />
+      </Badge>
+        </IconButton>
+        
+          </Stack>
+      </CardActions>
+      </Card>
+      </Stack>
     })}
+    
   </section>
 }
 

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import Events from './components/Events'
-import Dates from './components/Dates'
-import Weather from './components/Weather'
-import Newsletter_form from './components/Newsletter_form'
+import Events from './components/Events';
+import Dates from './components/Dates';
+import Weather from './components/Weather';
+import Navigation from './components/Navigation';
+import Newsletter_form from './components/Newsletter_form';
 // import Email_sender from './components/Email_sender';
-import Email_form from './components/Email_form'
+import Email_form from './components/Email_form';
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -29,17 +30,9 @@ const handleScheduleEmail = async () => {
 };
 
 export default function App() {
-
-  useEffect(() => {
-    // Schedule the email when the component mounts
-    handleScheduleEmail();
-
-    // Uncomment the following line if you want to schedule the email at a specific time every day
-    // scheduleEmailDaily();
-  }, []);
-    
   return (
     <main>
+      <Navigation/>
       <h1>Kid Events</h1>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Dates />
