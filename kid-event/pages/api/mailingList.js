@@ -6,7 +6,7 @@ export default async function handler(req, res) {
       const response = await axios.put(
         "https://api.sendgrid.com/v3/marketing/contacts",
         {
-          contacts: [{ email: `${req.body.mail}` }],
+          contacts: [{ email: `${req.body.email}` }],
           list_ids: [process.env.SENDGRID_MAILING_ID],
         },
         {

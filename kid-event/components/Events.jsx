@@ -29,13 +29,9 @@ const Events = () => {
           {location}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Stack 
-          direction="row" 
-          spacing={4}
-          justifyContent="space-around"
-          alignItems="center"
-          >
+        <CardActions sx={{ display:'flex',
+        justifyContent:"space-around"}}
+        >
           <IconButton aria-label="add to favorites">
         <Badge badgeContent={4} color="primary">
         <FavoriteIcon color="action" />
@@ -48,7 +44,6 @@ const Events = () => {
       </Badge>
         </IconButton>
         
-          </Stack>
       </CardActions>
       </Card>
       </Stack>

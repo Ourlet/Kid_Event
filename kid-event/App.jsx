@@ -3,9 +3,7 @@ import Events from './components/Events';
 import Dates from './components/Dates';
 import Weather from './components/Weather';
 import Navigation from './components/Navigation';
-import Newsletter_form from './components/Newsletter_form';
 // import Email_sender from './components/Email_sender';
-import Email_form from './components/Email_form';
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -37,9 +35,7 @@ export default function App() {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Dates />
       </LocalizationProvider> 
-      <Weather/>
-      <Newsletter_form />
-      <Email_form />
+      {/* <Weather/> */}
       {/*<Favorites/> */}
       {/* <Email_sender/> */}
       <Events />

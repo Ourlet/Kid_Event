@@ -4,39 +4,43 @@ import { toast } from "react-toastify";
 import { AppBar, Toolbar, Typography, TextField, IconButton } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { useGlobalContext } from '../context'
+import { useState } from "react";
 
 const Navigation = () => {
     const { email, setEmail } = useGlobalContext()
+    const [loading, setLoading] = useState(false);
 
-    const subscribe = () => {
-        axios
-          .put("api/mailingList", {
-            email,
-          })
-          .then((result) => {
-            if (result.status === 200) {
-              toast.success(result.data.message);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
-
-
-  };
+    const handleSubmit = (event) => {
+      alert(email)
+      console.log(email)
+      setLoading(true);
+      event.preventDefault(); 
+      
+      
+      // Make the API call here
+      axios
+        .put("api/mailingList", {
+          email,
+        })
+        .then((result) => {
+          if (result.status === 200) {
+            toast.success(result.data.message);
+            setLoading(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    };
 
   return (
     <AppBar position="fixed" sx={{ bgcolor: '#ffffff' }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          My Company
+        <Typography variant="h2" component="div" sx={{ flexGrow: 1, color:'grey' }}>
+          Kid Events
         </Typography>
-        <form >
+        <form onSubmit={handleSubmit}>
           <TextField
           onChange={(e) => {
             setEmail(e.target.value);
@@ -48,7 +52,7 @@ const Navigation = () => {
             type="email"
             required
           />
-          <IconButton type="submit" aria-label="submit" onClick={subscribe} >
+          <IconButton type="submit" aria-label="submit"  >
             <MailIcon />
           </IconButton>
         </form>
