@@ -3,6 +3,7 @@ import Events from './components/Events';
 import Dates from './components/Dates';
 import Weather from './components/Weather';
 import Navigation from './components/Navigation';
+import HeroImage from './components/HeroImage';
 // import Email_sender from './components/Email_sender';
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -31,10 +32,9 @@ export default function App() {
   return (
     <main>
       <Navigation/>
-      <h1>Kid Events</h1>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Dates />
-      </LocalizationProvider> 
+      <HeroImage/>
+      </LocalizationProvider>
       {/* <Weather/> */}
       {/*<Favorites/> */}
       {/* <Email_sender/> */}
