@@ -79,7 +79,7 @@ const HeroImage = () => {
         <Typography variant="h5" color="white">
           Find your next activities
         </Typography>
-        <Dates />
+        <Dates/>
       </Box>
     </Box>
   );

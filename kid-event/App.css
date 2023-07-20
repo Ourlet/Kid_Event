@@ -221,6 +221,9 @@ ul {
   gap: 1rem;  
   margin: 50px auto;
   justify-content:center;
+  background: 'lightgray';
+  border: '1px solid red';
+  border-radius: 4px;
 }
 
 /* Weather */
